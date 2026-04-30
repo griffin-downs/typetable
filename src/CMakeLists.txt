@@ -1,3 +1,3 @@
-set(EXECUTABLE_NAME ${PROJECT_NAME})
-
-add_executable(${EXECUTABLE_NAME} CompileTimePolymorphism.cpp)
+# Original monolithic file preserved in explorations/sketches.cpp
+# Library is now header-only in include/ctp/
+# Examples are in examples/

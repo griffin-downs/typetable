@@ -17,3 +17,4 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 endif()
 
 add_subdirectory(src)
+add_subdirectory(examples)
