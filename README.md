@@ -65,7 +65,7 @@ The library demonstrates several of Sutter's proposed metaclass patterns:
 
 ## Building
 
-Requires C++23, CMake 3.12+, and a compatible compiler (tested with Clang 17).
+Requires C++23, CMake 3.12+, and a compatible compiler (tested in CI with Clang 18 / 19 against system libstdc++; Clang 17 works against libc++ but not against libstdc++ 14+, so the CI matrix starts at 18).
 
 ```bash
 mkdir build && cd build
