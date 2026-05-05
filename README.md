@@ -1,5 +1,8 @@
 # Compile-Time Polymorphism
 
+[![build](https://github.com/griffin-downs/typetable/actions/workflows/build.yml/badge.svg)](https://github.com/griffin-downs/typetable/actions/workflows/build.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A header-only C++23 library that implements compile-time type composition using tuples and concepts. Types are namespaces. Structure is a `using` directive. Polymorphic dispatch is resolved entirely at compile time with zero runtime overhead.
 
 This is a working implementation of the kind of programmatic class composition that Herb Sutter's metaclasses proposal ([P0707](https://wg21.link/P0707)) described as requiring a language extension. It uses only features that shipped in C++20 and C++23.

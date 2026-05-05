@@ -1,0 +1,38 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  clang:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        clang: [17, 18, 19]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install clang-${{ matrix.clang }} + ninja
+        run: |
+          wget -qO - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+          sudo apt-add-repository "deb http://apt.llvm.org/$(lsb_release -cs)/ llvm-toolchain-$(lsb_release -cs)-${{ matrix.clang }} main"
+          sudo apt-get update
+          sudo apt-get install -y clang-${{ matrix.clang }} libc++-${{ matrix.clang }}-dev libc++abi-${{ matrix.clang }}-dev ninja-build
+
+      - name: Configure
+        env:
+          CXX: clang++-${{ matrix.clang }}
+        run: cmake -G Ninja -B build -S . -DCMAKE_CXX_COMPILER=clang++-${{ matrix.clang }}
+
+      - name: Build
+        run: ninja -C build
+
+      - name: Run examples (verify zero-overhead claim doesn't crash)
+        run: |
+          for ex in build/bin/*; do
+            echo "--- $ex ---"
+            "$ex"
+          done

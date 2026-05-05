@@ -1,1 +1,33 @@
-build/*
+# Build output
+build/
+out/
+cmake-build-*/
+
+# Compiler / tooling caches
+.cache/
+compile_commands.json
+*.tmp
+.ccache/
+.vs/
+
+# Object files / libs / binaries
+*.o
+*.obj
+*.so
+*.a
+*.dylib
+*.dll
+*.exe
+*.exp
+*.lib
+*.pdb
+*.ilk
+*.idb
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
